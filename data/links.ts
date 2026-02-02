@@ -9,6 +9,7 @@ export interface Link {
     note: string;
   };
   featured?: boolean;
+  image?: string;
 }
 
 export const links: Link[] = [
@@ -25,6 +26,8 @@ export const links: Link[] = [
       note: "A app mais usada em Portugal",
     },
     featured: true,
+    image:
+      "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "Padel Point",
@@ -38,6 +41,8 @@ export const links: Link[] = [
       note: "Boa variedade e preços competitivos",
     },
     featured: true,
+    image:
+      "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "World Padel Tour",
@@ -51,6 +56,8 @@ export const links: Link[] = [
       note: "Inspiração e técnica ao mais alto nível",
     },
     featured: true,
+    image:
+      "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "Padel Academy",
@@ -64,6 +71,8 @@ export const links: Link[] = [
       note: "Óptimo para começar do zero",
     },
     featured: true,
+    image:
+      "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=800&auto=format&fit=crop",
   },
 
   // Equipamento
@@ -167,8 +176,36 @@ export const links: Link[] = [
       note: "Útil para jogadores sérios",
     },
   },
+  {
+    title: "Robot Padel",
+    url: "https://robotpadel.pt/",
+    description:
+      "Plataforma para criar e gerir grupos privados de torneios. Organiza competições personalizadas com os teus amigos.",
+    category: "ferramentas",
+    tags: ["torneios", "grupos", "organização", "Portugal"],
+    opinion: {
+      type: "free",
+      note: "Perfeito para grupos e torneios privados",
+    },
+    image:
+      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800&auto=format&fit=crop",
+  },
 
   // Comunidade
+  {
+    title: "Smash4Fun",
+    url: "https://smash4fun.pt/",
+    description:
+      "Comunidade portuguesa de padel. Torneios, eventos sociais e networking entre jogadores.",
+    category: "comunidade",
+    tags: ["comunidade", "eventos", "torneios", "Portugal"],
+    opinion: {
+      type: "free",
+      note: "Comunidade dinâmica com eventos regulares",
+    },
+    image:
+      "https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=800&auto=format&fit=crop",
+  },
   {
     title: "Padel Portugal (Facebook)",
     url: "https://facebook.com/groups/padelportugal",
@@ -204,6 +241,62 @@ export const links: Link[] = [
       type: "free",
       note: "Essencial para competição federada",
     },
+  },
+  {
+    title: "Padel FIP - Notícias",
+    url: "https://www.padelfip.com/news/",
+    description:
+      "Notícias oficiais da Federação Internacional de Padel. Acompanha torneios profissionais e novidades do circuito mundial.",
+    category: "comunidade",
+    tags: ["notícias", "profissional", "internacional", "FIP"],
+    opinion: {
+      type: "free",
+      note: "Fonte oficial de notícias do padel mundial",
+    },
+    image:
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "World Padel Tour - News",
+    url: "https://www.worldpadeltour.com/noticias",
+    description:
+      "Últimas notícias do circuito profissional. Resultados, entrevistas e bastidores do WPT.",
+    category: "comunidade",
+    tags: ["notícias", "WPT", "profissional", "circuito"],
+    opinion: {
+      type: "free",
+      note: "Cobertura completa do circuito pro",
+    },
+    image:
+      "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Rankings Absolutos Portugal",
+    url: "https://tour.tiesports.com/fpp/weekly_rankings?rank=absolutos",
+    description:
+      "Rankings semanais oficiais dos melhores jogadores de padel em Portugal. Acompanha a tua posição e evolução.",
+    category: "comunidade",
+    tags: ["rankings", "oficial", "competição", "Portugal"],
+    opinion: {
+      type: "free",
+      note: "Rankings oficiais actualizados semanalmente",
+    },
+    image:
+      "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "Calendário de Torneios FPP",
+    url: "https://tour.tiesports.com/fpp/calendar_(tournaments)",
+    description:
+      "Calendário oficial de todos os torneios federados em Portugal. Consulta datas, locais e inscrições.",
+    category: "comunidade",
+    tags: ["torneios", "oficial", "calendário", "FPP"],
+    opinion: {
+      type: "free",
+      note: "Agenda completa de competições",
+    },
+    image:
+      "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
