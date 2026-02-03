@@ -1,5 +1,6 @@
 import LinkCard from "@/components/LinkCard";
 import NewsSection from "@/components/NewsSection";
+import AdBanner from "@/components/AdBanner";
 import { links, categories } from "@/data/links";
 
 export default function Home() {
@@ -82,6 +83,13 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Ad Banner Top */}
+        <section className="px-6 mb-8">
+          <div className="max-w-[1600px] mx-auto">
+            <AdBanner dataAdSlot="1234567890" />
+          </div>
+        </section>
+
         {/* Links Grid - 6 Columns */}
         <section className="px-6 pb-16">
           <div className="max-w-[1600px] mx-auto">
@@ -125,6 +133,13 @@ export default function Home() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* Ad Banner Bottom */}
+        <section className="px-6 mb-8">
+          <div className="max-w-[1600px] mx-auto">
+            <AdBanner dataAdSlot="0987654321" />
           </div>
         </section>
 
