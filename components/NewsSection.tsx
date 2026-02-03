@@ -64,23 +64,23 @@ export default function NewsSection() {
   }
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-red-900/20 via-gray-800/30 to-red-900/20 backdrop-blur-sm rounded-2xl border border-red-700/30">
+    <div className="relative overflow-hidden bg-gray-900 backdrop-blur-sm rounded-lg border border-gray-800 shadow-xl">
       {/* Gradient overlays para esconder os extremos */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-900 to-transparent z-10"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-900 to-transparent z-10"></div>
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
-      <div className="py-4 overflow-hidden">
-        <div className="flex gap-8 animate-scroll whitespace-nowrap">
+      <div className="py-4 overflow-hidden group/ticker">
+        <div className="flex gap-8 animate-scroll whitespace-nowrap group-hover/ticker:[animation-play-state:paused]">
           {newsWithHeaders.map((item, index) =>
             item.type === "header" ? (
               <div
                 key={`header-${index}`}
                 className="flex items-center gap-2 px-4"
               >
-                <span className="text-sm font-black text-red-400 uppercase tracking-wider">
-                  📰 NOTÍCIAS
+                <span className="text-sm font-semibold text-blue-500 uppercase tracking-wider">
+                  NEWS
                 </span>
-                <span className="text-red-500">•</span>
+                <span className="text-gray-700">•</span>
               </div>
             ) : item.type === "news" ? (
               <a
@@ -88,15 +88,17 @@ export default function NewsSection() {
                 href={item.data.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 hover:scale-105 transition-transform"
+                className="group flex items-center gap-3 hover:scale-105 transition-all"
               >
-                <span className="text-xs font-bold text-red-400 bg-red-500/20 px-3 py-1.5 rounded-full border border-red-500/40 flex-shrink-0">
+                <span className="text-xs font-medium text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-md border border-blue-500/20 flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
                   {item.data.source}
                 </span>
-                <span className="text-sm text-gray-300 group-hover:text-white transition-colors font-medium">
+                <span className="text-sm text-gray-400 group-hover:text-white transition-colors font-normal">
                   {item.data.title}
                 </span>
-                <span className="text-blue-400">→</span>
+                <span className="text-blue-500 group-hover:text-blue-400 transition-colors">
+                  →
+                </span>
               </a>
             ) : null,
           )}

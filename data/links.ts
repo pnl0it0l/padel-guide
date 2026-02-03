@@ -2,13 +2,7 @@ export interface Link {
   title: string;
   url: string;
   description: string;
-  category:
-    | "fpp"
-    | "reservas"
-    | "treino"
-    | "mix"
-    | "ferramentas"
-    | "comunidade";
+  category: "fpp" | "reservas" | "treino" | "mix" | "comunidade";
   tags: string[];
   opinion?: {
     type: "recommended" | "caution" | "free" | "paid";
@@ -36,19 +30,18 @@ export const links: Link[] = [
       "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "World Padel Tour",
-    url: "https://www.worldpadeltour.com",
+    title: "TiePlayer",
+    url: "https://tieplayer.com/",
     description:
-      "Assiste aos melhores jogadores do mundo. Transmissões ao vivo e replays.",
-    category: "comunidade",
-    tags: ["profissional", "streaming", "competições"],
+      "App para jogadores de padel. Reserva courts, encontra parceiros e acompanha a tua evolução.",
+    category: "reservas",
+    tags: ["app", "reservas", "Portugal"],
     opinion: {
       type: "free",
-      note: "Inspiração e técnica ao mais alto nível",
+      note: "App portuguesa para reservas",
     },
-    featured: true,
     image:
-      "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519671282429-b44660ead0a7?q=80&w=800&auto=format&fit=crop",
   },
 
   // Treino
@@ -99,30 +92,6 @@ export const links: Link[] = [
 
   // Comunidade
   {
-    title: "Padel Portugal (Facebook)",
-    url: "https://facebook.com/groups/padelportugal",
-    description:
-      "Grupo no Facebook com mais de 15k membros. Dicas, vendas e procura de parceiros.",
-    category: "comunidade",
-    tags: ["Facebook", "comunidade", "Portugal"],
-    opinion: {
-      type: "free",
-      note: "Comunidade activa e prestável",
-    },
-  },
-  {
-    title: "r/padel (Reddit)",
-    url: "https://reddit.com/r/padel",
-    description:
-      "Subreddit internacional sobre padel. Discussões, gear reviews e highlights.",
-    category: "comunidade",
-    tags: ["Reddit", "internacional", "inglês"],
-    opinion: {
-      type: "free",
-      note: "Boa fonte de reviews e conselhos",
-    },
-  },
-  {
     title: "Federação Portuguesa de Padel",
     url: "https://fppadel.pt",
     description:
@@ -133,6 +102,23 @@ export const links: Link[] = [
       type: "free",
       note: "Essencial para competição federada",
     },
+    image:
+      "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    title: "World Padel Tour",
+    url: "https://www.worldpadeltour.com",
+    description:
+      "Assiste aos melhores jogadores do mundo. Transmissões ao vivo e replays.",
+    category: "comunidade",
+    tags: ["profissional", "streaming", "competições"],
+    opinion: {
+      type: "free",
+      note: "Inspiração e técnica ao mais alto nível",
+    },
+    featured: true,
+    image:
+      "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "Padel FIP - Notícias",
@@ -147,20 +133,6 @@ export const links: Link[] = [
     },
     image:
       "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "World Padel Tour - News",
-    url: "https://www.worldpadeltour.com/noticias",
-    description:
-      "Últimas notícias do circuito profissional. Resultados, entrevistas e bastidores do WPT.",
-    category: "comunidade",
-    tags: ["notícias", "WPT", "profissional", "circuito"],
-    opinion: {
-      type: "free",
-      note: "Cobertura completa do circuito pro",
-    },
-    image:
-      "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=800&auto=format&fit=crop",
   },
   // FPP - Federação Portuguesa de Padel
   {
@@ -198,36 +170,30 @@ export const categories = [
     id: "fpp",
     name: "FPP",
     description: "Federação Portuguesa de Padel",
-    emoji: "🏆",
+    icon: "trophy",
   },
   {
     id: "reservas",
     name: "Reservas",
     description: "Apps para reservar courts",
-    emoji: "📅",
+    icon: "calendar",
   },
   {
     id: "treino",
     name: "Treino",
     description: "Aulas, cursos, YouTube e treinadores",
-    emoji: "💪",
+    icon: "play",
   },
   {
     id: "mix",
     name: "Mix",
     description: "Torneios e eventos organizados",
-    emoji: "🎯",
-  },
-  {
-    id: "ferramentas",
-    name: "Ferramentas",
-    description: "Apps, reservas e análise de jogo",
-    emoji: "📱",
+    icon: "users",
   },
   {
     id: "comunidade",
     name: "Comunidade",
     description: "Grupos, fóruns e redes sociais",
-    emoji: "👥",
+    icon: "globe",
   },
 ];
