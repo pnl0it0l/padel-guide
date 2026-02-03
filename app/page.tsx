@@ -20,6 +20,30 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Search */}
+            <div className="hidden md:flex flex-1 max-w-md mx-8">
+              <div className="relative w-full">
+                <input
+                  type="text"
+                  placeholder="Procurar links..."
+                  className="w-full px-4 py-1.5 pl-9 bg-gray-800/50 border border-gray-700/50 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:border-blue-500/50 transition-colors"
+                />
+                <svg
+                  className="absolute left-3 top-2 w-4 h-4 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+
             {/* CTA */}
             <a
               href="mailto:hello@padelguide.pt"
@@ -93,6 +117,7 @@ export default function Home() {
                           url={link.url}
                           tags={link.tags}
                           opinion={link.opinion}
+                          image={link.image}
                         />
                       ))}
                     </div>

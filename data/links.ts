@@ -2,7 +2,13 @@ export interface Link {
   title: string;
   url: string;
   description: string;
-  category: "equipamento" | "treino" | "ferramentas" | "comunidade";
+  category:
+    | "fpp"
+    | "reservas"
+    | "treino"
+    | "mix"
+    | "ferramentas"
+    | "comunidade";
   tags: string[];
   opinion?: {
     type: "recommended" | "caution" | "free" | "paid";
@@ -19,7 +25,7 @@ export const links: Link[] = [
     url: "https://playtomic.io",
     description:
       "Reserva courts, encontra parceiros de jogo e acompanha o teu ranking.",
-    category: "ferramentas",
+    category: "reservas",
     tags: ["app", "reservas", "ranking"],
     opinion: {
       type: "free",
@@ -28,21 +34,6 @@ export const links: Link[] = [
     featured: true,
     image:
       "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    title: "Padel Point",
-    url: "https://padelpoint.pt",
-    description:
-      "Loja online com raquetes, bolas e acessórios. Entregas rápidas em Portugal.",
-    category: "equipamento",
-    tags: ["loja", "raquetes", "Portugal"],
-    opinion: {
-      type: "recommended",
-      note: "Boa variedade e preços competitivos",
-    },
-    featured: true,
-    image:
-      "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=800&auto=format&fit=crop",
   },
   {
     title: "World Padel Tour",
@@ -59,129 +50,30 @@ export const links: Link[] = [
     image:
       "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=800&auto=format&fit=crop",
   },
-  {
-    title: "Padel Academy",
-    url: "#",
-    description:
-      "Aulas de grupo e privadas com treinadores certificados em Lisboa.",
-    category: "treino",
-    tags: ["aulas", "Lisboa", "iniciantes"],
-    opinion: {
-      type: "recommended",
-      note: "Óptimo para começar do zero",
-    },
-    featured: true,
-    image:
-      "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=800&auto=format&fit=crop",
-  },
-
-  // Equipamento
-  {
-    title: "Decathlon Padel",
-    url: "https://www.decathlon.pt/padel",
-    description:
-      "Raquetes entry-level e equipamento básico. Preços acessíveis para iniciantes.",
-    category: "equipamento",
-    tags: ["loja", "iniciantes", "acessível"],
-    opinion: {
-      type: "recommended",
-      note: "Boa opção para quem está a começar",
-    },
-  },
-  {
-    title: "Nox Padel",
-    url: "https://noxpadel.com",
-    description:
-      "Marca espanhola de referência. Raquetes de alta qualidade e design moderno.",
-    category: "equipamento",
-    tags: ["raquetes", "premium", "Espanha"],
-    opinion: {
-      type: "paid",
-      note: "Qualidade profissional, preço alto",
-    },
-  },
-  {
-    title: "Bullpadel",
-    url: "https://bullpadel.com",
-    description:
-      "Sponsor oficial de vários jogadores pro. Grande variedade de modelos.",
-    category: "equipamento",
-    tags: ["raquetes", "profissional", "roupa"],
-    opinion: {
-      type: "recommended",
-      note: "Marca de confiança, várias gamas de preço",
-    },
-  },
 
   // Treino
   {
-    title: "Padel Academy Porto",
-    url: "#",
+    title: "The Padel School",
+    url: "https://www.youtube.com/@ThePadelSchool",
     description:
-      "Centro de treino no Porto com courts indoor e outdoor. Aulas para todos os níveis.",
+      "Canal de YouTube com tutoriais de técnica, táctica e drills. Conteúdo gratuito e de qualidade.",
     category: "treino",
-    tags: ["aulas", "Porto", "indoor"],
-    opinion: {
-      type: "recommended",
-      note: "Instalações top, bons treinadores",
-    },
-  },
-  {
-    title: "Padelonomics (YouTube)",
-    url: "https://youtube.com/@padelonomics",
-    description:
-      "Canal com análise táctica, técnica e mental. Conteúdo em inglês e espanhol.",
-    category: "treino",
-    tags: ["YouTube", "táctica", "grátis"],
+    tags: ["YouTube", "técnica", "grátis", "tutoriais"],
     opinion: {
       type: "free",
-      note: "Melhor canal para aprender estratégia",
+      note: "Excelente para aprender fundamentos",
     },
-  },
-  {
-    title: "Sanyo Gutiérrez Academy",
-    url: "https://sanyogutierrez.com",
-    description:
-      "Cursos online do Sanyo. Técnica, táctica e treino físico específico para padel.",
-    category: "treino",
-    tags: ["online", "profissional", "pago"],
-    opinion: {
-      type: "paid",
-      note: "Conteúdo premium, vale o investimento",
-    },
+    image:
+      "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=800&auto=format&fit=crop",
   },
 
-  // Ferramentas
-  {
-    title: "Padel Manager",
-    url: "#",
-    description:
-      "App para gerir torneios amadores. Criar brackets, seguir resultados em tempo real.",
-    category: "ferramentas",
-    tags: ["app", "torneios", "resultados"],
-    opinion: {
-      type: "free",
-      note: "Essencial para organizar torneios",
-    },
-  },
-  {
-    title: "My Padel Stats",
-    url: "#",
-    description:
-      "Regista os teus jogos, acompanha estatísticas e evolução ao longo do tempo.",
-    category: "ferramentas",
-    tags: ["stats", "tracking", "análise"],
-    opinion: {
-      type: "free",
-      note: "Útil para jogadores sérios",
-    },
-  },
+  // Mix
   {
     title: "Robot Padel",
     url: "https://robotpadel.pt/",
     description:
       "Plataforma para criar e gerir grupos privados de torneios. Organiza competições personalizadas com os teus amigos.",
-    category: "ferramentas",
+    category: "mix",
     tags: ["torneios", "grupos", "organização", "Portugal"],
     opinion: {
       type: "free",
@@ -190,14 +82,12 @@ export const links: Link[] = [
     image:
       "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800&auto=format&fit=crop",
   },
-
-  // Comunidade
   {
     title: "Smash4Fun",
     url: "https://smash4fun.pt/",
     description:
       "Comunidade portuguesa de padel. Torneios, eventos sociais e networking entre jogadores.",
-    category: "comunidade",
+    category: "mix",
     tags: ["comunidade", "eventos", "torneios", "Portugal"],
     opinion: {
       type: "free",
@@ -206,6 +96,8 @@ export const links: Link[] = [
     image:
       "https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=800&auto=format&fit=crop",
   },
+
+  // Comunidade
   {
     title: "Padel Portugal (Facebook)",
     url: "https://facebook.com/groups/padelportugal",
@@ -270,12 +162,13 @@ export const links: Link[] = [
     image:
       "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=800&auto=format&fit=crop",
   },
+  // FPP - Federação Portuguesa de Padel
   {
     title: "Rankings Absolutos Portugal",
     url: "https://tour.tiesports.com/fpp/weekly_rankings?rank=absolutos",
     description:
       "Rankings semanais oficiais dos melhores jogadores de padel em Portugal. Acompanha a tua posição e evolução.",
-    category: "comunidade",
+    category: "fpp",
     tags: ["rankings", "oficial", "competição", "Portugal"],
     opinion: {
       type: "free",
@@ -289,7 +182,7 @@ export const links: Link[] = [
     url: "https://tour.tiesports.com/fpp/calendar_(tournaments)",
     description:
       "Calendário oficial de todos os torneios federados em Portugal. Consulta datas, locais e inscrições.",
-    category: "comunidade",
+    category: "fpp",
     tags: ["torneios", "oficial", "calendário", "FPP"],
     opinion: {
       type: "free",
@@ -302,16 +195,28 @@ export const links: Link[] = [
 
 export const categories = [
   {
-    id: "equipamento",
-    name: "Equipamento",
-    description: "Raquetes, bolas, roupa e acessórios",
-    emoji: "🎾",
+    id: "fpp",
+    name: "FPP",
+    description: "Federação Portuguesa de Padel",
+    emoji: "🏆",
+  },
+  {
+    id: "reservas",
+    name: "Reservas",
+    description: "Apps para reservar courts",
+    emoji: "📅",
   },
   {
     id: "treino",
     name: "Treino",
     description: "Aulas, cursos, YouTube e treinadores",
     emoji: "💪",
+  },
+  {
+    id: "mix",
+    name: "Mix",
+    description: "Torneios e eventos organizados",
+    emoji: "🎯",
   },
   {
     id: "ferramentas",

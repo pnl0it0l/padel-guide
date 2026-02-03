@@ -15,22 +15,59 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Padel Guide · O teu guia de padel em Portugal",
   description:
-    "Links úteis, curados e organizados para jogadores de padel. Equipamento, treino, apps, comunidade e mais.",
+    "O melhor guia de padel em Portugal. Encontra rankings FPP, reserva courts no Playtomic, vê treinos no YouTube, junta-te a torneios e comunidade. Tudo num só lugar.",
   keywords: [
     "padel",
     "Portugal",
-    "raquetes",
-    "treino",
     "padel Portugal",
-    "equipamento padel",
-    "aulas padel",
+    "FPP",
+    "Federação Portuguesa Padel",
+    "rankings padel",
+    "torneios padel",
+    "Playtomic",
+    "reservar court padel",
+    "treino padel",
+    "padel YouTube",
+    "comunidade padel",
+    "Robot Padel",
+    "Smash4Fun",
+    "calendário torneios padel",
+    "World Padel Tour",
+    "guia padel",
   ],
+  authors: [{ name: "Padel Guide" }],
+  creator: "Padel Guide",
+  publisher: "Padel Guide",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: "Padel Guide · O teu guia de padel em Portugal",
-    description: "Links úteis, curados e organizados para jogadores de padel.",
+    description:
+      "Rankings FPP, reservas Playtomic, treinos YouTube, torneios e comunidade. Tudo sobre padel em Portugal num só lugar.",
     type: "website",
     locale: "pt_PT",
+    url: "https://padel-guide.vercel.app",
+    siteName: "Padel Guide",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Padel Guide · O teu guia de padel em Portugal",
+    description:
+      "Rankings FPP, reservas Playtomic, treinos YouTube, torneios e comunidade padel em Portugal.",
+  },
+  alternates: {
+    canonical: "https://padel-guide.vercel.app",
+  },
+  metadataBase: new URL("https://padel-guide.vercel.app"),
 };
 
 export default function RootLayout({
