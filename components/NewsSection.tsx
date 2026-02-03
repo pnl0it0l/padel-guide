@@ -53,7 +53,9 @@ export default function NewsSection() {
   const doubledNews = [...news, ...news];
 
   // Cria array com header "NOTÍCIAS" repetido
-  const newsWithHeaders = [];
+  const newsWithHeaders: Array<
+    { type: "header" } | { type: "news"; data: NewsItem }
+  > = [];
   for (let i = 0; i < doubledNews.length; i++) {
     if (i % 3 === 0) {
       newsWithHeaders.push({ type: "header" });
@@ -80,7 +82,7 @@ export default function NewsSection() {
                 </span>
                 <span className="text-red-500">•</span>
               </div>
-            ) : (
+            ) : item.type === "news" ? (
               <a
                 key={index}
                 href={item.data.link}
@@ -96,7 +98,7 @@ export default function NewsSection() {
                 </span>
                 <span className="text-blue-400">→</span>
               </a>
-            ),
+            ) : null,
           )}
         </div>
       </div>
