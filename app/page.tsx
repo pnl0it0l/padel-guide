@@ -54,7 +54,7 @@ export default function Home() {
 
   // Get icon for each category
   const getCategoryIcon = (categoryId: string) => {
-    const icons: Record<string, JSX.Element> = {
+    const icons: Record<string, React.ReactElement> = {
       fpp: (
         <svg
           className="w-5 h-5"
