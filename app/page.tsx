@@ -223,13 +223,19 @@ export default function Home() {
         {/* Hero */}
         <section className="py-16 px-6">
           <div className="max-w-[1600px] mx-auto text-center">
-            <div className="inline-block mb-4 px-4 py-1.5 bg-gray-900 text-gray-400 rounded-full text-xs font-medium border border-gray-800">
-              Made in Portugal
+            {/* Hero Image */}
+            <div className="mb-8 rounded-2xl overflow-hidden max-w-4xl mx-auto shadow-2xl relative">
+              <img
+                src="https://media.timeout.com/images/105805648/1920/1080/image.webp"
+                alt="Padel court in Portugal"
+                className="w-full h-64 md:h-96 object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+                  Padel Guide
+                </h2>
+              </div>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight tracking-tight">
-              O teu guia de <span className="text-blue-500">padel</span> em
-              Portugal
-            </h2>
             <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
               Todos os recursos essenciais de padel em Portugal, num único lugar
             </p>
