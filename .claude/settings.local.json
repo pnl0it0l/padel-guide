@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx prisma db push:*)",
+      "Bash(npx prisma generate:*)",
+      "Bash(taskkill /F /FI \"WINDOWTITLE eq D:\\\\01-Projects\\\\padel-guide*\")",
+      "Bash(xargs kill:*)",
+      "Bash(pnpm install:*)"
+    ]
+  }
+}

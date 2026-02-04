@@ -1,0 +1,157 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  User              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Game {
+  id                       String     @id @default(cuid())
+  roundId                  String
+  tournamentId             String
+  team1Id                  String
+  team2Id                  String
+  court                    Int
+  team1Points              Int        @default(0)
+  team2Points              Int        @default(0)
+  winnerId                 String?
+  status                   GameStatus @default(PENDING)
+  startTime                DateTime?
+  endTime                  DateTime?
+  Round                    Round      @relation(fields: [roundId], references: [id], onDelete: Cascade)
+  Team_Game_team1IdToTeam  Team       @relation("Game_team1IdToTeam", fields: [team1Id], references: [id])
+  Team_Game_team2IdToTeam  Team       @relation("Game_team2IdToTeam", fields: [team2Id], references: [id])
+  Tournament               Tournament @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  Team_Game_winnerIdToTeam Team?      @relation("Game_winnerIdToTeam", fields: [winnerId], references: [id])
+
+  @@index([roundId])
+  @@index([tournamentId])
+}
+
+model Player {
+  id           String     @id @default(cuid())
+  name         String
+  tournamentId String
+  teamId       String?
+  Team         Team?      @relation(fields: [teamId], references: [id])
+  Tournament   Tournament @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+
+  @@index([tournamentId])
+}
+
+model Round {
+  id           String      @id @default(cuid())
+  tournamentId String
+  roundNumber  Int
+  startTime    DateTime?
+  endTime      DateTime?
+  status       RoundStatus @default(PENDING)
+  Game         Game[]
+  Tournament   Tournament  @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+
+  @@unique([tournamentId, roundNumber])
+  @@index([tournamentId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Team {
+  id                       String     @id @default(cuid())
+  tournamentId             String
+  player1Name              String
+  player2Name              String
+  teamName                 String?
+  position                 Int        @default(0)
+  Game_Game_team1IdToTeam  Game[]     @relation("Game_team1IdToTeam")
+  Game_Game_team2IdToTeam  Game[]     @relation("Game_team2IdToTeam")
+  Game_Game_winnerIdToTeam Game[]     @relation("Game_winnerIdToTeam")
+  Player                   Player[]
+  Tournament               Tournament @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+
+  @@index([tournamentId])
+}
+
+model Tournament {
+  id              String           @id @default(cuid())
+  name            String
+  date            DateTime
+  status          TournamentStatus @default(DRAFT)
+  courtsAvailable Int              @default(1)
+  createdBy       String
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  gameDuration    Int              @default(20)
+  Game            Game[]
+  Player          Player[]
+  Round           Round[]
+  Team            Team[]
+  User            User             @relation(fields: [createdBy], references: [id], onDelete: Cascade)
+
+  @@index([createdBy])
+  @@index([status])
+}
+
+model User {
+  id            String       @id @default(cuid())
+  name          String?
+  email         String?      @unique
+  emailVerified DateTime?
+  image         String?
+  Account       Account[]
+  Session       Session[]
+  Tournament    Tournament[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+enum GameStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum RoundStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum TournamentStatus {
+  DRAFT
+  ACTIVE
+  COMPLETED
+}
