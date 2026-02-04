@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/Header";
+import LoginButton from "@/components/LoginButton";
 
 interface Tournament {
   id: string;

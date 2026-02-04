@@ -12,7 +12,7 @@ export default function TournamentDetailPage() {
   const tournamentId = params.id as string;
 
   const [tournament, setTournament] = useState<TournamentWithRelations | null>(
-    null
+    null,
   );
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"games" | "standings">("games");
@@ -51,7 +51,7 @@ export default function TournamentDetailPage() {
   const handleGameInputChange = (
     gameId: string,
     field: "team1Points" | "team2Points",
-    value: string
+    value: string,
   ) => {
     setGameInputs((prev) => ({
       ...prev,
@@ -117,12 +117,13 @@ export default function TournamentDetailPage() {
 
     const totalGames = tournament.rounds.reduce(
       (sum, round) => sum + (round.games?.length || 0),
-      0
+      0,
     );
     const completedGames = tournament.rounds.reduce(
       (sum, round) =>
-        sum + (round.games?.filter((g) => g.status === "COMPLETED").length || 0),
-      0
+        sum +
+        (round.games?.filter((g) => g.status === "COMPLETED").length || 0),
+      0,
     );
 
     return { completed: completedGames, total: totalGames };
@@ -158,8 +159,12 @@ export default function TournamentDetailPage() {
   const standings =
     tournament.teams && tournament.rounds
       ? calculateStandings(
-          tournament.teams,
-          tournament.rounds.flatMap((r) => r.games || [])
+          tournament.teams.map((team) => ({
+            ...team,
+            teamName:
+              team.teamName || `${team.player1Name} & ${team.player2Name}`,
+          })),
+          tournament.rounds.flatMap((r) => r.games || []),
         )
       : [];
 
@@ -364,7 +369,7 @@ export default function TournamentDetailPage() {
                                 handleGameInputChange(
                                   game.id,
                                   "team1Points",
-                                  e.target.value
+                                  e.target.value,
                                 )
                               }
                               className="w-16 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-center focus:outline-none focus:border-blue-500"
@@ -404,7 +409,7 @@ export default function TournamentDetailPage() {
                                 handleGameInputChange(
                                   game.id,
                                   "team2Points",
-                                  e.target.value
+                                  e.target.value,
                                 )
                               }
                               className="w-16 px-2 py-1 bg-gray-700 border border-gray-600 rounded text-white text-center focus:outline-none focus:border-blue-500"
@@ -487,9 +492,7 @@ export default function TournamentDetailPage() {
                     <tr
                       key={standing.teamId}
                       className={`${
-                        index === 0
-                          ? "bg-green-500/10"
-                          : "hover:bg-gray-800/30"
+                        index === 0 ? "bg-green-500/10" : "hover:bg-gray-800/30"
                       } transition-colors`}
                     >
                       <td className="px-4 py-3 text-sm text-gray-300">
