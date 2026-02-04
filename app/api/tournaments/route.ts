@@ -287,9 +287,12 @@ export async function POST(request: NextRequest) {
       const schedule = generateRoundRobinSchedule(
         teamIds,
         body.courtsAvailable,
+        body.numberOfGames, // Pass the number of games limit
       );
 
-      console.log(`🎯 Generated ${schedule.length} rounds with round-robin`);
+      console.log(
+        `🎯 Generated ${schedule.length} rounds with ${schedule.reduce((acc, r) => acc + r.pairings.length, 0)} games (max: ${body.numberOfGames || "unlimited"})`,
+      );
 
       // 5. Create rounds and games
       for (const roundSchedule of schedule) {

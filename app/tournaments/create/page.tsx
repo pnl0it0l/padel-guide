@@ -21,6 +21,7 @@ export default function CreateTournamentPage() {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [courtsAvailable, setCourtsAvailable] = useState(2);
+  const [numberOfGames, setNumberOfGames] = useState(6);
 
   // Pairing mode
   const [pairingMode, setPairingMode] = useState<PairingMode>("auto");
@@ -62,11 +63,7 @@ export default function CreateTournamentPage() {
     }
   };
 
-  const updateTeam = (
-    index: number,
-    field: keyof TeamInput,
-    value: string
-  ) => {
+  const updateTeam = (index: number, field: keyof TeamInput, value: string) => {
     const updated = [...teams];
     updated[index][field] = value;
     setTeams(updated);
@@ -101,6 +98,7 @@ export default function CreateTournamentPage() {
         name: name.trim(),
         date: new Date(date).toISOString(),
         courtsAvailable,
+        numberOfGames,
       };
 
       if (pairingMode === "auto") {
@@ -134,7 +132,9 @@ export default function CreateTournamentPage() {
       router.push(`/tournaments/${tournament.id}`);
     } catch (err) {
       console.error("Error creating tournament:", err);
-      setError(err instanceof Error ? err.message : "Failed to create tournament");
+      setError(
+        err instanceof Error ? err.message : "Failed to create tournament",
+      );
     } finally {
       setLoading(false);
     }
@@ -187,7 +187,7 @@ export default function CreateTournamentPage() {
               </div>
 
               {/* Date and Courts */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
                     Data
@@ -211,7 +211,24 @@ export default function CreateTournamentPage() {
                     max="10"
                     value={courtsAvailable}
                     onChange={(e) =>
-                      setCourtsAvailable(parseInt(e.target.value))
+                      setCourtsAvailable(parseInt(e.target.value) || 1)
+                    }
+                    className="w-full px-4 py-2.5 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Número de Jogos
+                  </label>
+                  <input
+                    type="number"
+                    min="2"
+                    max="50"
+                    value={numberOfGames}
+                    onChange={(e) =>
+                      setNumberOfGames(parseInt(e.target.value) || 2)
                     }
                     className="w-full px-4 py-2.5 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
                     required
