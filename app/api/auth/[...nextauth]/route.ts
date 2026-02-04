@@ -13,6 +13,10 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (token && session.user) {
         (session.user as any).id = token.sub;
+        // Check if user is admin
+        if (session.user.email === "pntrigo@gmail.com") {
+          (session.user as any).isAdmin = true;
+        }
       }
       return session;
     },

@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 // GET /api/tournaments/[id] - Get tournament with all relations
 export async function GET(
@@ -64,6 +66,42 @@ export async function GET(
     console.error("Error fetching tournament:", error);
     return NextResponse.json(
       { error: "Failed to fetch tournament" },
+      { status: 500 },
+    );
+  }
+}
+
+// DELETE /api/tournaments/[id] - Delete tournament (admin only)
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  try {
+    const session = await getServerSession(authOptions);
+
+    // Check if user is admin
+    if (!session?.user?.email || session.user.email !== "pntrigo@gmail.com") {
+      return NextResponse.json(
+        { error: "Unauthorized - Admin access required" },
+        { status: 403 },
+      );
+    }
+
+    const { id: tournamentId } = await params;
+
+    // Delete tournament (cascade will handle related records)
+    await prisma.tournament.delete({
+      where: { id: tournamentId },
+    });
+
+    return NextResponse.json({
+      success: true,
+      message: "Tournament deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting tournament:", error);
+    return NextResponse.json(
+      { error: "Failed to delete tournament" },
       { status: 500 },
     );
   }
