@@ -149,112 +149,98 @@ export default function Home() {
 
       {/* Main Content */}
       <main id="main-content">
-        {/* Hero Section - More Professional & Cleaner */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        {/* Hero Section - Compact */}
+        <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 border-b border-gray-800/50">
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0" style={{
               backgroundImage: 'radial-gradient(circle at 2px 2px, rgb(59, 130, 246) 1px, transparent 0)',
               backgroundSize: '48px 48px'
             }}></div>
           </div>
 
-          <div className="max-w-[1600px] mx-auto px-6 py-16 md:py-24 relative z-10">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left Column - Text */}
-              <div className="space-y-6">
-                <div className="inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-blue-400 text-sm font-semibold">
-                  O Seu Guia Completo
-                </div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-tight">
-                  Padel em<br />
-                  <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-6 md:py-8 relative z-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
+              {/* Left - Title & Stats */}
+              <div className="flex-1 text-center md:text-left">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight mb-2">
+                  Padel Guide{" "}
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                     Portugal
                   </span>
                 </h1>
-                <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
-                  Todos os recursos essenciais de padel num único lugar. Clubes, torneios, treinos e comunidade.
+                <p className="text-xs md:text-sm text-gray-400 mb-3">
+                  Todos os recursos de padel num só lugar
                 </p>
 
-                {/* Search Bar */}
-                <div className="relative max-w-xl">
-                  <input
-                    type="text"
-                    placeholder="Procurar clubes, treinos, torneios..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    aria-label="Procurar recursos de padel"
-                    className="w-full px-6 py-4 pl-14 bg-gray-900/80 border border-gray-700/50 rounded-2xl text-base text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/80 focus:ring-2 focus:ring-blue-500/30 focus:bg-gray-900 transition-all duration-300"
-                  />
-                  <svg
-                    className="absolute left-5 top-4.5 w-6 h-6 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery("")}
-                      className="absolute right-5 top-3.5 text-2xl text-gray-400 hover:text-white"
-                      aria-label="Limpar pesquisa"
-                    >
-                      ×
-                    </button>
-                  )}
-                </div>
-
-                {/* Stats */}
-                <div className="flex gap-8 pt-4">
+                {/* Stats - Inline */}
+                <div className="flex gap-4 justify-center md:justify-start text-xs">
                   <div>
-                    <div className="text-3xl font-bold text-white">{links.length}+</div>
-                    <div className="text-sm text-gray-400">Recursos</div>
+                    <span className="font-bold text-blue-400">{links.length}+</span>
+                    <span className="text-gray-500 ml-1">recursos</span>
                   </div>
+                  <div className="text-gray-700">•</div>
                   <div>
-                    <div className="text-3xl font-bold text-white">{categories.length}</div>
-                    <div className="text-sm text-gray-400">Categorias</div>
+                    <span className="font-bold text-blue-400">{categories.length}</span>
+                    <span className="text-gray-500 ml-1">categorias</span>
                   </div>
+                  <div className="text-gray-700">•</div>
                   <div>
-                    <div className="text-3xl font-bold text-white">{allTags.length}+</div>
-                    <div className="text-sm text-gray-400">Tags</div>
+                    <span className="font-bold text-blue-400">{allTags.length}+</span>
+                    <span className="text-gray-500 ml-1">tags</span>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column - Image */}
-              <div className="relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-800">
-                  <img
-                    src="https://media.timeout.com/images/105805648/1920/1080/image.webp"
-                    alt="Padel court in Portugal"
-                    className="w-full h-[400px] md:h-[500px] object-cover"
+              {/* Center - Search Bar */}
+              <div className="relative w-full md:w-96 flex-shrink-0">
+                <input
+                  type="text"
+                  placeholder="Procurar..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  aria-label="Procurar recursos de padel"
+                  className="w-full px-4 py-2.5 pl-10 bg-gray-900/80 border border-gray-700/50 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500/80 focus:ring-1 focus:ring-blue-500/30 transition-all"
+                />
+                <svg
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                </div>
-                {/* Decorative Element */}
-                <div className="absolute -z-10 -bottom-8 -right-8 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
-                <div className="absolute -z-10 -top-8 -left-8 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"></div>
+                </svg>
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+                    aria-label="Limpar pesquisa"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
               </div>
             </div>
           </div>
         </section>
 
         {/* Tag Filter Section */}
-        <section className="bg-black/50">
-          <div className="max-w-[1600px] mx-auto px-6 py-6">
+        <section className="bg-black/50 border-b border-gray-800/30">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3">
             {allTags.length > 0 && (
-              <div className="flex flex-wrap gap-2.5 justify-center">
+              <div className="flex flex-wrap gap-2 justify-center">
                 {allTags.slice(0, 12).map((tag) => (
                   <button
                     key={tag}
                     onClick={() => toggleTag(tag)}
-                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${selectedTags.includes(tag)
+                    className={`px-2.5 md:px-3 py-1 md:py-1.5 text-xs font-medium rounded-md transition-all duration-200 ${selectedTags.includes(tag)
                       ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
                       : "bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-blue-500/50 hover:text-white hover:bg-gray-800"
                       }`}
@@ -265,7 +251,7 @@ export default function Home() {
                 {selectedTags.length > 0 && (
                   <button
                     onClick={() => setSelectedTags([])}
-                    className="px-4 py-2 text-sm font-medium rounded-lg bg-red-500/20 text-red-400 border border-red-500/50 hover:bg-red-500/30 transition-all duration-200"
+                    className="px-2.5 md:px-3 py-1 md:py-1.5 text-xs font-medium rounded-md bg-red-500/20 text-red-400 border border-red-500/50 hover:bg-red-500/30 transition-all duration-200"
                   >
                     × Limpar
                   </button>
@@ -276,26 +262,26 @@ export default function Home() {
         </section>
 
         {/* News Ticker */}
-        <section className="px-6 mb-12">
+        <section className="px-4 sm:px-6 my-4">
           <div className="max-w-[1600px] mx-auto">
             <NewsSection />
           </div>
         </section>
 
         {/* Ad Banner Top */}
-        <section className="px-6 mb-8">
+        <section className="px-4 sm:px-6 mb-4">
           <div className="max-w-[1600px] mx-auto">
             <AdBanner dataAdSlot="1234567890" />
           </div>
         </section>
 
-        {/* Links Grid - 6 Columns */}
-        <section className="px-6 pb-16">
+        {/* Links Grid */}
+        <section className="px-4 sm:px-6 pb-10 md:pb-12">
           <div className="max-w-[1600px] mx-auto">
             {/* Search/Filter Results Info */}
             {(searchQuery || selectedTags.length > 0) && (
-              <div className="mb-6 text-center">
-                <p className="text-sm text-gray-400">
+              <div className="mb-4 text-center">
+                <p className="text-xs md:text-sm text-gray-400">
                   {filteredLinks.length === 0 ? (
                     <span className="text-yellow-400">
                       Nenhum link encontrado
@@ -313,7 +299,7 @@ export default function Home() {
               </div>
             )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6">
               {categories.map((category) => {
                 const categoryLinks = filteredLinks.filter(
                   (link) => link.category === category.id,
@@ -328,17 +314,17 @@ export default function Home() {
                 }
 
                 return (
-                  <div key={category.id} className="space-y-3 animate-fadeIn">
+                  <div key={category.id} className="space-y-2 animate-fadeIn">
                     {/* Column Header */}
-                    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gray-700/50 group">
-                      <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 group-hover:scale-110 transition-all duration-300">
+                    <div className="flex items-center gap-2 mb-2 pb-2 border-b border-gray-700/50 group">
+                      <div className="p-1.5 rounded-md bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 group-hover:scale-105 transition-all duration-300">
                         {getCategoryIcon(category.id)}
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-white mb-0.5 group-hover:text-blue-300 transition-colors">
+                        <h3 className="text-sm md:text-base font-bold text-white group-hover:text-blue-300 transition-colors">
                           {category.name}
                         </h3>
-                        <p className="text-xs text-gray-500 font-medium">
+                        <p className="text-[10px] text-gray-500 font-medium">
                           {categoryLinks.length}{" "}
                           {categoryLinks.length === 1 ? "link" : "links"}
                         </p>
@@ -346,7 +332,7 @@ export default function Home() {
                     </div>
 
                     {/* Links */}
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {categoryLinks.length === 0 ? (
                         <p className="text-sm text-gray-500 italic py-6 text-center">
                           Nenhum link nesta categoria
@@ -372,18 +358,18 @@ export default function Home() {
         </section>
 
         {/* Ad Banner Bottom */}
-        <section className="px-6 mb-8">
+        <section className="px-4 sm:px-6 mb-4">
           <div className="max-w-[1600px] mx-auto">
             <AdBanner dataAdSlot="0987654321" />
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="px-6 py-16 border-t border-gray-800/50 bg-gradient-to-b from-transparent to-gray-900/30">
-          <div className="max-w-[1600px] mx-auto text-center space-y-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
+        <footer className="px-4 sm:px-6 py-8 border-t border-gray-800/50 bg-gradient-to-b from-transparent to-gray-900/30">
+          <div className="max-w-[1600px] mx-auto text-center space-y-3">
+            <div className="flex items-center justify-center gap-2">
               <svg
-                className="w-6 h-6 text-blue-400"
+                className="w-5 h-5 text-blue-400"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -395,13 +381,13 @@ export default function Home() {
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
-              <span className="text-lg font-bold text-white">Padel Guide</span>
+              <span className="text-sm font-bold text-white">Padel Guide</span>
             </div>
-            <p className="text-gray-400 text-sm max-w-md mx-auto">
+            <p className="text-gray-500 text-xs">
               O teu guia completo de padel em Portugal
             </p>
-            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-            <p className="text-gray-600 text-xs">© 2026 Padel Guide · Feito com ❤️ para a comunidade de padel</p>
+            <div className="h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
+            <p className="text-gray-600 text-[10px]">© 2026 Padel Guide · Feito com ❤️ para a comunidade de padel</p>
           </div>
         </footer>
       </main>
@@ -410,11 +396,11 @@ export default function Home() {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 transition-all duration-300 flex items-center justify-center group hover:scale-110 animate-fadeIn"
+          className="fixed bottom-6 right-6 z-50 w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-full shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center group hover:scale-110 animate-fadeIn"
           aria-label="Voltar ao topo"
         >
           <svg
-            className="w-6 h-6 group-hover:-translate-y-1 transition-transform"
+            className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

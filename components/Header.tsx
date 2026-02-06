@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
 import LoginButton from "./LoginButton";
 
@@ -10,6 +11,7 @@ interface HeaderProps {
 
 export default function Header({ showCreateTournament = false }: HeaderProps) {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const isActive = (path: string) => {
     if (path === "/") {
@@ -91,10 +93,12 @@ export default function Header({ showCreateTournament = false }: HeaderProps) {
             {/* Login Button */}
             <LoginButton />
 
-            {/* Mobile menu button placeholder */}
+            {/* Mobile menu button */}
             <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-colors"
               aria-label="Menu"
+              aria-expanded={mobileMenuOpen}
             >
               <svg
                 className="w-6 h-6"
@@ -102,16 +106,77 @@ export default function Header({ showCreateTournament = false }: HeaderProps) {
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                {mobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
               </svg>
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-gray-700/50 py-4 animate-fadeIn">
+            <nav className="flex flex-col gap-2">
+              <Link
+                href="/#fpp"
+                onClick={() => setMobileMenuOpen(false)}
+                className={navLinkClass("/#fpp")}
+              >
+                FPP
+              </Link>
+              <Link
+                href="/#reservas"
+                onClick={() => setMobileMenuOpen(false)}
+                className={navLinkClass("/#reservas")}
+              >
+                Reservas
+              </Link>
+              <Link
+                href="/#treino"
+                onClick={() => setMobileMenuOpen(false)}
+                className={navLinkClass("/#treino")}
+              >
+                Treino
+              </Link>
+              <Link
+                href="/tournaments"
+                onClick={() => setMobileMenuOpen(false)}
+                className={navLinkClass("/tournaments")}
+              >
+                Torneios
+              </Link>
+              <Link
+                href="/#comunidade"
+                onClick={() => setMobileMenuOpen(false)}
+                className={navLinkClass("/#comunidade")}
+              >
+                Comunidade
+              </Link>
+              {showCreateTournament && (
+                <Link
+                  href="/tournaments/create"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="mt-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg text-center"
+                >
+                  Criar Torneio
+                </Link>
+              )}
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

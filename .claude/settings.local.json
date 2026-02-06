@@ -5,7 +5,18 @@
       "Bash(npx prisma generate:*)",
       "Bash(taskkill /F /FI \"WINDOWTITLE eq D:\\\\01-Projects\\\\padel-guide*\")",
       "Bash(xargs kill:*)",
-      "Bash(pnpm install:*)"
+      "Bash(pnpm install:*)",
+      "Bash(test:*)",
+      "Bash(pnpm list:*)",
+      "Bash(npm --version:*)",
+      "Bash(npm install)",
+      "Bash(openssl rand:*)",
+      "Bash(pnpm build:*)",
+      "Bash(npm run build:*)",
+      "Bash(tree:*)",
+      "Skill(git-tools:commit-and-push)",
+      "Skill(git-tools:commit-and-push:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }
