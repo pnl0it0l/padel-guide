@@ -179,6 +179,7 @@ export async function POST(request: NextRequest) {
           name: body.name,
           date: new Date(body.date),
           courtsAvailable: body.courtsAvailable,
+          numberOfGames: body.numberOfGames,
           gameDuration: 20, // Fixed at 20 minutes
           createdBy: userId,
           status: "DRAFT",

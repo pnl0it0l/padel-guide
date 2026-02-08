@@ -105,6 +105,7 @@ model Tournament {
   date            DateTime
   status          TournamentStatus @default(DRAFT)
   courtsAvailable Int              @default(1)
+  numberOfGames   Int?
   createdBy       String
   createdAt       DateTime         @default(now())
   updatedAt       DateTime         @updatedAt
