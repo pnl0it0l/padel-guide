@@ -134,6 +134,21 @@ export const links: Link[] = [
     image:
       "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=800&auto=format&fit=crop",
   },
+  {
+    title: "Premier Padel",
+    url: "https://www.premierpadel.com/en",
+    description:
+      "Circuito profissional oficial de padel. Resultados ao vivo, calendário de torneios e ranking dos melhores jogadores do mundo.",
+    category: "comunidade",
+    tags: ["profissional", "torneios", "ranking", "internacional"],
+    opinion: {
+      type: "free",
+      note: "Circuito oficial sancionado pela FIP",
+    },
+    featured: true,
+    image:
+      "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?q=80&w=800&auto=format&fit=crop",
+  },
   // FPP - Federação Portuguesa de Padel
   {
     title: "Rankings Absolutos Portugal",

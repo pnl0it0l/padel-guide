@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import LinkCard from "@/components/LinkCard";
 import NewsSection from "@/components/NewsSection";
 import FPPTournaments from "@/components/FPPTournaments";
+import PremierPadelLive from "@/components/PremierPadelLive";
 import AdBanner from "@/components/AdBanner";
 import { links, categories } from "@/data/links";
 
@@ -296,6 +297,9 @@ export default function Home() {
             <FPPTournaments />
           </div>
         </section>
+
+        {/* Premier Padel Live */}
+        <PremierPadelLive />
 
         {/* Ad Banner Top */}
         <section className="px-4 sm:px-6 mb-4">
