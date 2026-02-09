@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import Header from "@/components/Header";
 import LinkCard from "@/components/LinkCard";
 import NewsSection from "@/components/NewsSection";
+import FPPTournaments from "@/components/FPPTournaments";
 import AdBanner from "@/components/AdBanner";
 import { links, categories } from "@/data/links";
 
@@ -153,10 +154,14 @@ export default function Home() {
         <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 border-b border-gray-800/50">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: 'radial-gradient(circle at 2px 2px, rgb(59, 130, 246) 1px, transparent 0)',
-              backgroundSize: '48px 48px'
-            }}></div>
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 2px 2px, rgb(59, 130, 246) 1px, transparent 0)",
+                backgroundSize: "48px 48px",
+              }}
+            ></div>
           </div>
 
           <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-6 md:py-8 relative z-10">
@@ -176,17 +181,23 @@ export default function Home() {
                 {/* Stats - Inline */}
                 <div className="flex gap-4 justify-center md:justify-start text-xs">
                   <div>
-                    <span className="font-bold text-blue-400">{links.length}+</span>
+                    <span className="font-bold text-blue-400">
+                      {links.length}+
+                    </span>
                     <span className="text-gray-500 ml-1">recursos</span>
                   </div>
                   <div className="text-gray-700">•</div>
                   <div>
-                    <span className="font-bold text-blue-400">{categories.length}</span>
+                    <span className="font-bold text-blue-400">
+                      {categories.length}
+                    </span>
                     <span className="text-gray-500 ml-1">categorias</span>
                   </div>
                   <div className="text-gray-700">•</div>
                   <div>
-                    <span className="font-bold text-blue-400">{allTags.length}+</span>
+                    <span className="font-bold text-blue-400">
+                      {allTags.length}+
+                    </span>
                     <span className="text-gray-500 ml-1">tags</span>
                   </div>
                 </div>
@@ -221,8 +232,18 @@ export default function Home() {
                     className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
                     aria-label="Limpar pesquisa"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   </button>
                 )}
@@ -240,10 +261,11 @@ export default function Home() {
                   <button
                     key={tag}
                     onClick={() => toggleTag(tag)}
-                    className={`px-2.5 md:px-3 py-1 md:py-1.5 text-xs font-medium rounded-md transition-all duration-200 ${selectedTags.includes(tag)
-                      ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
-                      : "bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-blue-500/50 hover:text-white hover:bg-gray-800"
-                      }`}
+                    className={`px-2.5 md:px-3 py-1 md:py-1.5 text-xs font-medium rounded-md transition-all duration-200 ${
+                      selectedTags.includes(tag)
+                        ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
+                        : "bg-gray-800/80 text-gray-300 border border-gray-700/50 hover:border-blue-500/50 hover:text-white hover:bg-gray-800"
+                    }`}
                   >
                     {tag}
                   </button>
@@ -265,6 +287,13 @@ export default function Home() {
         <section className="px-4 sm:px-6 my-4">
           <div className="max-w-[1600px] mx-auto">
             <NewsSection />
+          </div>
+        </section>
+
+        {/* FPP Tournaments */}
+        <section className="px-4 sm:px-6 my-4">
+          <div className="max-w-[1600px] mx-auto">
+            <FPPTournaments />
           </div>
         </section>
 
@@ -387,7 +416,9 @@ export default function Home() {
               O teu guia completo de padel em Portugal
             </p>
             <div className="h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-            <p className="text-gray-600 text-[10px]">© 2026 Padel Guide · Feito com ❤️ para a comunidade de padel</p>
+            <p className="text-gray-600 text-[10px]">
+              © 2026 Padel Guide · Feito com ❤️ para a comunidade de padel
+            </p>
           </div>
         </footer>
       </main>
