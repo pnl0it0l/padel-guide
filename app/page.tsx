@@ -343,7 +343,11 @@ export default function Home() {
                 }
 
                 return (
-                  <div key={category.id} className="space-y-2 animate-fadeIn">
+                  <div
+                    key={category.id}
+                    id={category.id}
+                    className="space-y-2 animate-fadeIn"
+                  >
                     {/* Column Header */}
                     <div className="flex items-center gap-2 mb-2 pb-2 border-b border-gray-700/50 group">
                       <div className="p-1.5 rounded-md bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 group-hover:scale-105 transition-all duration-300">
