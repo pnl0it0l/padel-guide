@@ -6,7 +6,8 @@
 
 - Vai a https://www.google.com/adsense
 - Faz login com conta Google
-- Adiciona domínio: padel-guide.vercel.app
+- Adiciona domínio: padelguide.pt
+- (Opcional) Adiciona também: www.padelguide.pt
 
 ### 2. Obter o código do publisher
 

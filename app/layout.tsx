@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  applicationName: "Padel Guide",
   title: "Padel Guide · O teu guia de padel em Portugal",
   description:
     "O melhor guia de padel em Portugal. Encontra rankings FPP, reserva courts no Playtomic, vê treinos no YouTube, junta-te a torneios e comunidade. Tudo num só lugar.",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
       "Rankings FPP, reservas Playtomic, treinos YouTube, torneios e comunidade. Tudo sobre padel em Portugal num só lugar.",
     type: "website",
     locale: "pt_PT",
-    url: "https://padel-guide.vercel.app",
+    url: "https://padelguide.pt",
     siteName: "Padel Guide",
   },
   twitter: {
@@ -67,9 +68,9 @@ export const metadata: Metadata = {
       "Rankings FPP, reservas Playtomic, treinos YouTube, torneios e comunidade padel em Portugal.",
   },
   alternates: {
-    canonical: "https://padel-guide.vercel.app",
+    canonical: "https://padelguide.pt",
   },
-  metadataBase: new URL("https://padel-guide.vercel.app"),
+  metadataBase: new URL("https://padelguide.pt"),
 };
 
 export default function RootLayout({

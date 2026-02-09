@@ -28,10 +28,12 @@
    - Name: "Padel Guide Web Client"
    - Authorized JavaScript origins:
      - `http://localhost:3000`
-     - Your production URL (e.g., `https://padel-guide.vercel.app`)
+     - `https://padelguide.pt`
+     - `https://www.padelguide.pt`
    - Authorized redirect URIs:
      - `http://localhost:3000/api/auth/callback/google`
-     - `https://your-production-url.com/api/auth/callback/google`
+     - `https://padelguide.pt/api/auth/callback/google`
+     - `https://www.padelguide.pt/api/auth/callback/google`
 5. Click "Create"
 6. Copy your Client ID and Client Secret
 
