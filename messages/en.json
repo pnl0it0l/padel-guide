@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "title": "Padel Guide · Your complete padel guide",
+    "description": "The best padel guide. Find FPP rankings, book courts on Playtomic, watch training on YouTube, join tournaments and community. Everything in one place.",
+    "applicationName": "Padel Guide"
+  },
+  "header": {
+    "brand": "Padel Guide",
+    "tagline": "Portugal",
+    "nav": {
+      "fpp": "FPP",
+      "reservas": "Bookings",
+      "campos": "Courts",
+      "tournaments": "Tournaments",
+      "comunidade": "Community",
+      "contacto": "Contact",
+      "admin": "Admin"
+    },
+    "createTournament": "Create Tournament",
+    "mobileMenu": "Menu",
+    "close": "Close"
+  },
+  "home": {
+    "title": "Padel Guide",
+    "subtitle": "Everything about padel in Portugal, in one place",
+    "searchPlaceholder": "Search by name, description or category...",
+    "tabs": {
+      "links": "Links",
+      "fpp": "FPP Tournaments",
+      "premier": "Premier Padel"
+    },
+    "backToTop": "Back to top",
+    "categories": {
+      "all": "All",
+      "fpp": "FPP",
+      "reservas": "Bookings",
+      "mix": "Mix",
+      "comunidade": "Community"
+    },
+    "noResults": "No links found",
+    "tryDifferentSearch": "Try searching for something different"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signInWith": "Sign in with {provider}",
+    "signOut": "Sign Out",
+    "welcome": "Welcome",
+    "profile": "Profile"
+  },
+  "tournaments": {
+    "title": "Tournaments",
+    "create": "Create Tournament",
+    "list": "Tournament List",
+    "myTournaments": "My Tournaments",
+    "allTournaments": "All Tournaments",
+    "name": "Tournament Name",
+    "format": "Format",
+    "date": "Date",
+    "status": "Status",
+    "teams": "Teams",
+    "formats": {
+      "DIRECT_PLAYOFF": "Direct Playoff",
+      "GROUPS_PLAYOFF": "Groups + Playoff"
+    },
+    "matchFormats": {
+      "BEST_OF_3": "Best of 3",
+      "PRO_SET": "Pro Set",
+      "TIMED": "Timed"
+    },
+    "statuses": {
+      "DRAFT": "Draft",
+      "ACTIVE": "Active",
+      "COMPLETED": "Completed"
+    },
+    "noTournaments": "No tournaments found",
+    "createFirst": "Create your first tournament!",
+    "view": "View Tournament",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Error sending message. Please try again."
+  },
+  "campos": {
+    "title": "Find Courts",
+    "subtitle": "Find available padel courts",
+    "searchPlaceholder": "Search by location...",
+    "selectDate": "Select Date",
+    "selectTime": "Select Time",
+    "search": "Search",
+    "noResults": "No courts found",
+    "available": "Available",
+    "book": "Book"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved",
+    "madeWith": "Made with",
+    "in": "in",
+    "portugal": "Portugal"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No"
+  }
+}

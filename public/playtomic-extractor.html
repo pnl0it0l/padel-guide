@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playtomic Tenant Extractor</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .card {
+        background: #f7f9fc;
+        border: 2px solid #e1e8ed;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .card h2 {
+        color: #667eea;
+        font-size: 18px;
+        margin-bottom: 15px;
+      }
+
+      .steps {
+        counter-reset: step;
+        list-style: none;
+      }
+
+      .steps li {
+        counter-increment: step;
+        padding-left: 40px;
+        position: relative;
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .steps li::before {
+        content: counter(step);
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #667eea;
+        color: white;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      code {
+        background: #e8d5ff;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        font-size: 13px;
+        color: #764ba2;
+      }
+
+      .button {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 5px;
+        transition: transform 0.2s;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      }
+
+      #output {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 20px;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 13px;
+        max-height: 400px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .empty {
+        color: #666;
+        text-align: center;
+        font-style: italic;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 100px;
+        padding: 10px;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 13px;
+        resize: vertical;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .button-group {
+        margin-top: 10px;
+      }
+
+      .success {
+        background: #10b981;
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .error {
+        background: #ef4444;
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎾 Playtomic Tenant Data Extractor</h1>
+      <p class="description">
+        Extract tenant information from Playtomic search results
+      </p>
+
+      <!-- Instructions -->
+      <div class="card">
+        <h2>📋 Instructions</h2>
+        <ol class="steps">
+          <li>
+            Open the
+            <a
+              href="https://playtomic.com/search?q=lisboa"
+              target="_blank"
+              class="button"
+              >Playtomic Search Page</a
+            >
+          </li>
+          <li>
+            Open Developer Tools (<code>F12</code> or
+            <code>Ctrl+Shift+I</code> / <code>Cmd+Option+I</code>)
+          </li>
+          <li>Go to the <code>Network</code> tab</li>
+          <li>
+            Look for requests to
+            <code>playtomic.io/api</code> or <code>api.playtomic.io</code>
+          </li>
+          <li>Find responses that contain tenant/venue data (usually JSON)</li>
+          <li>Copy the response JSON and paste it in the text area below</li>
+        </ol>
+      </div>
+
+      <!-- Manual Input Method -->
+      <div class="card">
+        <h2>📝 Option 1: Paste JSON Response</h2>
+        <textarea
+          id="jsonInput"
+          placeholder='Paste the JSON response here. It should look like:
+[
+  {
+    "tenant_id": "...",
+    "tenant_name": "...",
+    "address": "...",
+    ...
+  }
+]'
+        ></textarea>
+        <div class="button-group">
+          <button class="button" onclick="parseJSON()">Parse JSON</button>
+          <button class="button" onclick="clearInput()">Clear</button>
+        </div>
+        <div id="parseStatus"></div>
+      </div>
+
+      <!-- Bookmarklet Method -->
+      <div class="card">
+        <h2>🔖 Option 2: Use Bookmarklet (Advanced)</h2>
+        <p style="margin-bottom: 15px; color: #666">
+          Drag this link to your bookmarks bar, then click it while on the
+          Playtomic search page:
+        </p>
+        <a
+          href="javascript:(function(){const data=document.body.innerText;try{const json=JSON.parse(data);const tenants=Array.isArray(json)?json:json.tenants||json.data||[];const formatted=tenants.map(t=>({id:t.tenant_id||t.id,name:t.tenant_name||t.name,address:t.address,city:t.city,lat:t.latitude,lon:t.longitude,rating:t.rating,courts:t.resources?.length||0}));const win=window.open('','_blank');win.document.write('<html><head><title>Extracted Data</title></head><body><pre>'+JSON.stringify(formatted,null,2)+'</pre></body></html>');}catch(e){alert('Could not parse data: '+e.message);}})()"
+          class="button"
+          >Extract Playtomic Data</a
+        >
+      </div>
+
+      <!-- Alternative: Manual Entry -->
+      <div class="card">
+        <h2>✏️ Option 3: Manual Entry</h2>
+        <p style="margin-bottom: 15px; color: #666">
+          Or manually enter tenant information:
+        </p>
+        <div style="display: grid; gap: 10px">
+          <input
+            type="text"
+            id="manualId"
+            placeholder="Tenant ID (UUID)"
+            style="padding: 10px; border: 2px solid #e1e8ed; border-radius: 8px"
+          />
+          <input
+            type="text"
+            id="manualName"
+            placeholder="Tenant Name"
+            style="padding: 10px; border: 2px solid #e1e8ed; border-radius: 8px"
+          />
+          <input
+            type="text"
+            id="manualAddress"
+            placeholder="Address"
+            style="padding: 10px; border: 2px solid #e1e8ed; border-radius: 8px"
+          />
+          <input
+            type="text"
+            id="manualCity"
+            placeholder="City"
+            style="padding: 10px; border: 2px solid #e1e8ed; border-radius: 8px"
+          />
+          <button class="button" onclick="addManualEntry()">Add to List</button>
+        </div>
+      </div>
+
+      <!-- Output -->
+      <div class="card">
+        <h2>📊 Extracted Data</h2>
+        <div id="output" class="empty">
+          No data yet. Follow the instructions above to extract tenant data.
+        </div>
+        <div class="button-group">
+          <button class="button" onclick="downloadJSON()">Download JSON</button>
+          <button class="button" onclick="downloadCSV()">Download CSV</button>
+          <button class="button" onclick="copyToClipboard()">
+            Copy to Clipboard
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let extractedData = [];
+
+      function parseJSON() {
+        const input = document.getElementById("jsonInput").value;
+        const statusDiv = document.getElementById("parseStatus");
+
+        if (!input.trim()) {
+          statusDiv.innerHTML =
+            '<div class="error">Please paste some JSON data first</div>';
+          return;
+        }
+
+        try {
+          const data = JSON.parse(input);
+
+          // Handle different response formats
+          let tenants = [];
+          if (Array.isArray(data)) {
+            tenants = data;
+          } else if (data.tenants) {
+            tenants = data.tenants;
+          } else if (data.data) {
+            tenants = data.data;
+          } else {
+            tenants = [data];
+          }
+
+          // Extract relevant fields
+          extractedData = tenants.map((t) => ({
+            id: t.tenant_id || t.id || "",
+            name: t.tenant_name || t.name || "",
+            address: t.address || "",
+            city: t.city || "",
+            latitude: t.latitude || t.lat || null,
+            longitude: t.longitude || t.lon || null,
+            rating: t.rating || null,
+            reviewCount: t.review_count || t.reviews || 0,
+            phone: t.phone || "",
+            website: t.website || "",
+            courtsCount: t.resources?.length || t.courts || 0,
+            sports: t.sports || [],
+          }));
+
+          updateOutput();
+          statusDiv.innerHTML = `<div class="success">Successfully parsed ${extractedData.length} tenants!</div>`;
+        } catch (error) {
+          statusDiv.innerHTML = `<div class="error">Error parsing JSON: ${error.message}</div>`;
+        }
+      }
+
+      function clearInput() {
+        document.getElementById("jsonInput").value = "";
+        document.getElementById("parseStatus").innerHTML = "";
+      }
+
+      function addManualEntry() {
+        const id = document.getElementById("manualId").value;
+        const name = document.getElementById("manualName").value;
+        const address = document.getElementById("manualAddress").value;
+        const city = document.getElementById("manualCity").value;
+
+        if (!id || !name) {
+          alert("Please fill in at least the ID and Name fields");
+          return;
+        }
+
+        extractedData.push({
+          id,
+          name,
+          address,
+          city,
+          latitude: null,
+          longitude: null,
+          rating: null,
+          reviewCount: 0,
+          phone: "",
+          website: "",
+          courtsCount: 0,
+          sports: [],
+        });
+
+        // Clear inputs
+        document.getElementById("manualId").value = "";
+        document.getElementById("manualName").value = "";
+        document.getElementById("manualAddress").value = "";
+        document.getElementById("manualCity").value = "";
+
+        updateOutput();
+      }
+
+      function updateOutput() {
+        const output = document.getElementById("output");
+        if (extractedData.length === 0) {
+          output.className = "empty";
+          output.textContent =
+            "No data yet. Follow the instructions above to extract tenant data.";
+          return;
+        }
+
+        output.className = "";
+        output.textContent = JSON.stringify(extractedData, null, 2);
+      }
+
+      function downloadJSON() {
+        if (extractedData.length === 0) {
+          alert("No data to download");
+          return;
+        }
+
+        const blob = new Blob([JSON.stringify(extractedData, null, 2)], {
+          type: "application/json",
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `playtomic-tenants-${Date.now()}.json`;
+        a.click();
+      }
+
+      function downloadCSV() {
+        if (extractedData.length === 0) {
+          alert("No data to download");
+          return;
+        }
+
+        const headers = [
+          "ID",
+          "Name",
+          "Address",
+          "City",
+          "Latitude",
+          "Longitude",
+          "Rating",
+          "Review Count",
+          "Phone",
+          "Website",
+          "Courts Count",
+        ];
+        const rows = extractedData.map((t) => [
+          t.id,
+          t.name,
+          t.address,
+          t.city,
+          t.latitude,
+          t.longitude,
+          t.rating,
+          t.reviewCount,
+          t.phone,
+          t.website,
+          t.courtsCount,
+        ]);
+
+        const csv = [
+          headers.join(","),
+          ...rows.map((row) =>
+            row
+              .map((cell) => `"${String(cell).replace(/"/g, '""')}"`)
+              .join(","),
+          ),
+        ].join("\n");
+
+        const blob = new Blob([csv], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `playtomic-tenants-${Date.now()}.csv`;
+        a.click();
+      }
+
+      function copyToClipboard() {
+        if (extractedData.length === 0) {
+          alert("No data to copy");
+          return;
+        }
+
+        const text = JSON.stringify(extractedData, null, 2);
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            alert("Copied to clipboard!");
+          })
+          .catch(() => {
+            alert("Failed to copy. Please select and copy manually.");
+          });
+      }
+    </script>
+  </body>
+</html>

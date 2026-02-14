@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "title": "Padel Guide · O teu guia de padel",
+    "description": "O melhor guia de padel. Encontra rankings FPP, reserva courts no Playtomic, vê treinos no YouTube, junta-te a torneios e comunidade. Tudo num só lugar.",
+    "applicationName": "Padel Guide"
+  },
+  "header": {
+    "brand": "Padel Guide",
+    "tagline": "Portugal",
+    "nav": {
+      "fpp": "FPP",
+      "reservas": "Reservas",
+      "campos": "Campos",
+      "tournaments": "Torneios",
+      "comunidade": "Comunidade",
+      "contacto": "Contacto",
+      "admin": "Admin"
+    },
+    "createTournament": "Criar Torneio",
+    "mobileMenu": "Menu",
+    "close": "Fechar"
+  },
+  "home": {
+    "title": "Padel Guide",
+    "subtitle": "Tudo sobre padel em Portugal, num só lugar",
+    "searchPlaceholder": "Procurar por nome, descrição ou categoria...",
+    "tabs": {
+      "links": "Links",
+      "fpp": "Torneios FPP",
+      "premier": "Premier Padel"
+    },
+    "backToTop": "Voltar ao topo",
+    "categories": {
+      "all": "Todos",
+      "fpp": "FPP",
+      "reservas": "Reservas",
+      "mix": "Mix",
+      "comunidade": "Comunidade"
+    },
+    "noResults": "Nenhum link encontrado",
+    "tryDifferentSearch": "Tenta procurar por algo diferente"
+  },
+  "auth": {
+    "signIn": "Entrar",
+    "signInWith": "Entrar com {provider}",
+    "signOut": "Sair",
+    "welcome": "Bem-vindo",
+    "profile": "Perfil"
+  },
+  "tournaments": {
+    "title": "Torneios",
+    "create": "Criar Torneio",
+    "list": "Lista de Torneios",
+    "myTournaments": "Os Meus Torneios",
+    "allTournaments": "Todos os Torneios",
+    "name": "Nome do Torneio",
+    "format": "Formato",
+    "date": "Data",
+    "status": "Estado",
+    "teams": "Equipas",
+    "formats": {
+      "DIRECT_PLAYOFF": "Eliminatórias Diretas",
+      "GROUPS_PLAYOFF": "Grupos + Eliminatórias"
+    },
+    "matchFormats": {
+      "BEST_OF_3": "Melhor de 3",
+      "PRO_SET": "Pro Set",
+      "TIMED": "Tempo Limitado"
+    },
+    "statuses": {
+      "DRAFT": "Rascunho",
+      "ACTIVE": "Ativo",
+      "COMPLETED": "Concluído"
+    },
+    "noTournaments": "Nenhum torneio encontrado",
+    "createFirst": "Cria o teu primeiro torneio!",
+    "view": "Ver Torneio",
+    "edit": "Editar",
+    "delete": "Eliminar"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Entra em contacto connosco",
+    "name": "Nome",
+    "email": "Email",
+    "message": "Mensagem",
+    "send": "Enviar",
+    "sending": "A enviar...",
+    "success": "Mensagem enviada com sucesso!",
+    "error": "Erro ao enviar mensagem. Tenta novamente."
+  },
+  "campos": {
+    "title": "Procurar Campos",
+    "subtitle": "Encontra campos de padel disponíveis",
+    "searchPlaceholder": "Procurar por localização...",
+    "selectDate": "Seleciona Data",
+    "selectTime": "Seleciona Hora",
+    "search": "Procurar",
+    "noResults": "Nenhum campo encontrado",
+    "available": "Disponível",
+    "book": "Reservar"
+  },
+  "footer": {
+    "allRightsReserved": "Todos os direitos reservados",
+    "madeWith": "Feito com",
+    "in": "em",
+    "portugal": "Portugal"
+  },
+  "common": {
+    "loading": "A carregar...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "close": "Fechar",
+    "open": "Abrir",
+    "yes": "Sim",
+    "no": "Não"
+  }
+}

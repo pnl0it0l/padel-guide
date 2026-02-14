@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "title": "Padel Guide · Votre guide de padel complet",
+    "description": "Le meilleur guide de padel. Trouvez les classements FPP, réservez des courts sur Playtomic, regardez des entraînements sur YouTube, rejoignez des tournois et la communauté. Tout en un seul endroit.",
+    "applicationName": "Padel Guide"
+  },
+  "header": {
+    "brand": "Padel Guide",
+    "tagline": "Portugal",
+    "nav": {
+      "fpp": "FPP",
+      "reservas": "Réservations",
+      "campos": "Courts",
+      "tournaments": "Tournois",
+      "comunidade": "Communauté",
+      "contacto": "Contact",
+      "admin": "Admin"
+    },
+    "createTournament": "Créer un Tournoi",
+    "mobileMenu": "Menu",
+    "close": "Fermer"
+  },
+  "home": {
+    "title": "Padel Guide",
+    "subtitle": "Tout sur le padel au Portugal, en un seul endroit",
+    "searchPlaceholder": "Rechercher par nom, description ou catégorie...",
+    "tabs": {
+      "links": "Liens",
+      "fpp": "Tournois FPP",
+      "premier": "Premier Padel"
+    },
+    "backToTop": "Retour en haut",
+    "categories": {
+      "all": "Tous",
+      "fpp": "FPP",
+      "reservas": "Réservations",
+      "mix": "Mix",
+      "comunidade": "Communauté"
+    },
+    "noResults": "Aucun lien trouvé",
+    "tryDifferentSearch": "Essayez de rechercher autre chose"
+  },
+  "auth": {
+    "signIn": "Se Connecter",
+    "signInWith": "Se connecter avec {provider}",
+    "signOut": "Se Déconnecter",
+    "welcome": "Bienvenue",
+    "profile": "Profil"
+  },
+  "tournaments": {
+    "title": "Tournois",
+    "create": "Créer un Tournoi",
+    "list": "Liste des Tournois",
+    "myTournaments": "Mes Tournois",
+    "allTournaments": "Tous les Tournois",
+    "name": "Nom du Tournoi",
+    "format": "Format",
+    "date": "Date",
+    "status": "Statut",
+    "teams": "Équipes",
+    "formats": {
+      "DIRECT_PLAYOFF": "Élimination Directe",
+      "GROUPS_PLAYOFF": "Groupes + Élimination"
+    },
+    "matchFormats": {
+      "BEST_OF_3": "Meilleur des 3",
+      "PRO_SET": "Pro Set",
+      "TIMED": "Temps Limité"
+    },
+    "statuses": {
+      "DRAFT": "Brouillon",
+      "ACTIVE": "Actif",
+      "COMPLETED": "Terminé"
+    },
+    "noTournaments": "Aucun tournoi trouvé",
+    "createFirst": "Créez votre premier tournoi !",
+    "view": "Voir le Tournoi",
+    "edit": "Modifier",
+    "delete": "Supprimer"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Contactez-nous",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Erreur lors de l'envoi du message. Veuillez réessayer."
+  },
+  "campos": {
+    "title": "Trouver des Courts",
+    "subtitle": "Trouvez des courts de padel disponibles",
+    "searchPlaceholder": "Rechercher par lieu...",
+    "selectDate": "Sélectionner la Date",
+    "selectTime": "Sélectionner l'Heure",
+    "search": "Rechercher",
+    "noResults": "Aucun court trouvé",
+    "available": "Disponible",
+    "book": "Réserver"
+  },
+  "footer": {
+    "allRightsReserved": "Tous droits réservés",
+    "madeWith": "Fait avec",
+    "in": "au",
+    "portugal": "Portugal"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "yes": "Oui",
+    "no": "Non"
+  }
+}
