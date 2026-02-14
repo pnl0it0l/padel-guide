@@ -71,6 +71,9 @@ export const metadata: Metadata = {
     canonical: "https://padelguide.pt",
   },
   metadataBase: new URL("https://padelguide.pt"),
+  other: {
+    "google-adsense-account": "ca-pub-6219557724010826",
+  },
 };
 
 export default function RootLayout({
@@ -83,7 +86,7 @@ export default function RootLayout({
       <head>
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6219557724010826"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />

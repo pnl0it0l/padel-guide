@@ -112,7 +112,7 @@ export default async function LocaleLayout({
       <head>
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6219557724010826"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
